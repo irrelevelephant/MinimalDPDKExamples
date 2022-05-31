@@ -30,7 +30,7 @@ uint64_t packet_count = 0;
 
 static const struct rte_eth_conf port_conf_default = {
 	.rxmode = {
-		.max_rx_pkt_len = RTE_ETHER_MAX_LEN,
+		.max_lro_pkt_size = RTE_ETHER_MAX_LEN,
 	},
 };
 
@@ -144,9 +144,9 @@ void rx_packets(void)
 
 			for(i=0;i<nb_rx;++i){
 
-				printf("----->processing packet %d\n",i);
-				printf("----->pkt_len=%d\n",bufs[i]->pkt_len);
-				DumpHex(rte_pktmbuf_mtod(bufs[i],char *),bufs[i]->pkt_len);
+			  //printf("----->processing packet %d\n",i);
+			  //printf("----->pkt_len=%d\n",bufs[i]->pkt_len);
+			  //DumpHex(rte_pktmbuf_mtod(bufs[i],char *),bufs[i]->pkt_len);
 
 				rte_pktmbuf_free(bufs[i]);
 			}
